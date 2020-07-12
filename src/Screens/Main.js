@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
 import '../App.css';
 import falcon from "../Assets/falcon.jpg";
@@ -40,7 +43,11 @@ class Main extends Component{
             planet1:'',
             planet2:'',
             planet3:'',
-            planet4:''
+            planet4:'',
+            destination1Choice: '',
+            destination2Choice: '',
+            destination3Choice: '',
+            destination4Choice: ''
         };
     }
 
@@ -72,7 +79,15 @@ class Main extends Component{
                         <MenuItem value="10">Ten</MenuItem>
                         <MenuItem value="20">Twenty</MenuItem>
                         <MenuItem value="30">Thirty</MenuItem>
-                    </Select> 
+                    </Select>
+                    <div style={{padding: "36px"}}>
+                        <RadioGroup aria-label="gender" name="gender1" value={this.state.destination1Choice} onChange={(event)=> this.setState({destination1Choice: event.target.value})}>
+                            <FormControlLabel value="female" control={<Radio />} label="Space Pod" />
+                            <FormControlLabel value="male" control={<Radio />} label="Space Rocket" />
+                            <FormControlLabel value="other" control={<Radio />} label="Space Shuttle" />
+                            <FormControlLabel value="other1" control={<Radio />} label="Space Ship" />
+                        </RadioGroup>    
+                    </div>   
                 </div>
                 <div className="Area">
                     <div style={{padding: "16px"}}>
@@ -89,6 +104,14 @@ class Main extends Component{
                         <MenuItem value="20">Twenty</MenuItem>
                         <MenuItem value="30">Thirty</MenuItem>
                     </Select> 
+                    <div style={{padding: "36px"}}>
+                        <RadioGroup aria-label="gender" name="gender1" value={this.state.destination2Choice} onChange={(event)=> this.setState({destination2Choice: event.target.value})}>
+                            <FormControlLabel value="female" control={<Radio />} label="Space Pod" />
+                            <FormControlLabel value="male" control={<Radio />} label="Space Rocket" />
+                            <FormControlLabel value="other" control={<Radio />} label="Space Shuttle" />
+                            <FormControlLabel value="other1" control={<Radio />} label="Space Ship" />
+                        </RadioGroup>    
+                    </div>  
                 </div>
                 <div className="Area">
                     <div style={{padding: "16px"}}>
@@ -105,6 +128,14 @@ class Main extends Component{
                         <MenuItem value="20">Twenty</MenuItem>
                         <MenuItem value="30">Thirty</MenuItem>
                     </Select> 
+                    <div style={{padding: "36px"}}>
+                        <RadioGroup aria-label="gender" name="gender1" value={this.state.destination3Choice} onChange={(event)=> this.setState({destination3Choice: event.target.value})}>
+                            <FormControlLabel value="female" control={<Radio />} label="Space Pod" />
+                            <FormControlLabel value="male" control={<Radio />} label="Space Rocket" />
+                            <FormControlLabel value="other" control={<Radio />} label="Space Shuttle" />
+                            <FormControlLabel value="other1" control={<Radio />} label="Space Ship" />
+                        </RadioGroup>    
+                    </div>  
                 </div>
                 <div className="Area">
                     <div style={{padding: "16px"}}>
@@ -121,6 +152,14 @@ class Main extends Component{
                         <MenuItem value="20">Twenty</MenuItem>
                         <MenuItem value="30">Thirty</MenuItem>
                     </Select> 
+                    <div style={{padding: "36px"}}>
+                        <RadioGroup aria-label="gender" name="gender1" value={this.state.destination4Choice} onChange={(event)=> this.setState({destination4Choice: event.target.value})}>
+                            <FormControlLabel value="female" control={<Radio />} label="Space Pod" />
+                            <FormControlLabel value="male" control={<Radio />} label="Space Rocket" />
+                            <FormControlLabel value="other" control={<Radio />} label="Space Shuttle" />
+                            <FormControlLabel value="other1" control={<Radio />} label="Space Ship" />
+                        </RadioGroup>    
+                    </div>  
                 </div>
                 
             </div>
