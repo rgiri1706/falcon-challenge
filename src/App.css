@@ -23,8 +23,26 @@
   color: white;
 }
 
+.Select-Style {
+  background: white;
+  width: 84%;
+  border-radius: 5px;
+  font-family: 'Titillium Web', sans-serif;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.Area{
+  flex: 3;
+}
+
+.Dropdown-Boxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 42px
 }
 
 @keyframes App-logo-spin {
