@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
+import { connect } from 'react-redux';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
+import { planetListRequest } from '../store/actions/planets.js';
 import '../App.css';
 import falcon from "../Assets/falcon.jpg";
 
@@ -51,8 +53,14 @@ class Main extends Component{
         };
     }
 
+    componentDidMount(){
+        const { requestPlanetList } = this.props;
+        requestPlanetList();
+    }
+
     render(){
-       console.log(this.state.planet);
+       const { planetList } = this.props;
+       console.log(planetList);
        return (
         <ParentDiv>
             <Title>
@@ -75,10 +83,10 @@ class Main extends Component{
                     className="Select-Style"
                     value={this.state.planet1}
                     onChange={(event)=> this.setState({planet1: event.target.value})}
-                    >
-                        <MenuItem value="10">Ten</MenuItem>
-                        <MenuItem value="20">Twenty</MenuItem>
-                        <MenuItem value="30">Thirty</MenuItem>
+                    >   
+                        {planetList.map(option => (
+                           <MenuItem value={option.name}>{option.name}</MenuItem>
+                        ))}
                     </Select>
                     <div style={{padding: "36px"}}>
                         <RadioGroup aria-label="gender" name="gender1" value={this.state.destination1Choice} onChange={(event)=> this.setState({destination1Choice: event.target.value})}>
@@ -100,9 +108,9 @@ class Main extends Component{
                     value={this.state.planet2}
                     onChange={(event)=> this.setState({planet2: event.target.value})}
                     >
-                        <MenuItem value="10">Ten</MenuItem>
-                        <MenuItem value="20">Twenty</MenuItem>
-                        <MenuItem value="30">Thirty</MenuItem>
+                         {planetList.map(option => (
+                           <MenuItem value={option.name}>{option.name}</MenuItem>
+                        ))}
                     </Select> 
                     <div style={{padding: "36px"}}>
                         <RadioGroup aria-label="gender" name="gender1" value={this.state.destination2Choice} onChange={(event)=> this.setState({destination2Choice: event.target.value})}>
@@ -124,9 +132,9 @@ class Main extends Component{
                     value={this.state.planet3}
                     onChange={(event)=> this.setState({planet3: event.target.value})}
                     >
-                        <MenuItem value="10">Ten</MenuItem>
-                        <MenuItem value="20">Twenty</MenuItem>
-                        <MenuItem value="30">Thirty</MenuItem>
+                        {planetList.map(option => (
+                           <MenuItem value={option.name}>{option.name}</MenuItem>
+                        ))}
                     </Select> 
                     <div style={{padding: "36px"}}>
                         <RadioGroup aria-label="gender" name="gender1" value={this.state.destination3Choice} onChange={(event)=> this.setState({destination3Choice: event.target.value})}>
@@ -148,9 +156,9 @@ class Main extends Component{
                     value={this.state.planet4}
                     onChange={(event)=> this.setState({planet4: event.target.value})}
                     >
-                        <MenuItem value="10">Ten</MenuItem>
-                        <MenuItem value="20">Twenty</MenuItem>
-                        <MenuItem value="30">Thirty</MenuItem>
+                         {planetList.map(option => (
+                           <MenuItem value={option.name}>{option.name}</MenuItem>
+                        ))}
                     </Select> 
                     <div style={{padding: "36px"}}>
                         <RadioGroup aria-label="gender" name="gender1" value={this.state.destination4Choice} onChange={(event)=> this.setState({destination4Choice: event.target.value})}>
@@ -173,4 +181,12 @@ class Main extends Component{
     }
 }
 
-export default Main;
+const mapStateToProps = state => ({
+    planetList:state.planets.planetList
+  })
+  
+  const mapDispatchToProps = dispatch => ({
+    requestPlanetList: () => dispatch(planetListRequest()),
+  })
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
