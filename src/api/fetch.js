@@ -48,17 +48,14 @@
   // this stores user auth details on signin
 export default async function _fetch(url,config)
 {
-    let token;
-    let uid;
-    let client;
     try {
         // Read token from store
         // token = await AsyncStorage.getItem('access-token');
         // uid = await AsyncStorage.getItem('uid');
         // client = await AsyncStorage.getItem('client');
         // make body
+        // eslint-disable-next-line no-mixed-operators
         const body = config && config.body || null;
-        const headers = config && config.headers || {};
         const configObj = {
             ...config,
            /* headers: {
@@ -71,7 +68,7 @@ export default async function _fetch(url,config)
             body: body ? JSON.stringify(body) : null
         }
         // more manupulations
-        return fetch("https://findfalcone.herokuapp.com/planets",configObj)
+        return fetch(url,configObj)
         .then(handleResponse)
         .then(data => data)
         .catch(error => error);
