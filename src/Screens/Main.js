@@ -164,9 +164,9 @@ class Main extends Component{
                                 {vehicleList.map((option,i) => (
 
                                             this.state.distance1 <= option.max_distance ? 
-                                            <FormControlLabel key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name+" "+" ( " + arr[i] +" ) " } />
+                                            <FormControlLabel key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name} />
                                             :
-                                            <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+" "+" ( " + arr[i] +" ) " } />
+                                            <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name} />
                                 ))}
                         </RadioGroup>}    
                     </div>   
@@ -190,9 +190,9 @@ class Main extends Component{
                         {this.state.planet2 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination2Choice} onChange={(event)=> this.setState({destination2Choice: event.target.value})}>
                              {vehicleList.map((option,i) => (
                                  this.state.distance2 <= option.max_distance ? 
-                                 <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name+" "+" ( " + arr[i] +" ) " } />
+                                 <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name} />
                                  :
-                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+" "+" ( " + arr[i] +" ) " } />
+                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name} />
                             ))}
                         </RadioGroup>}
                     </div>  
@@ -216,9 +216,9 @@ class Main extends Component{
                         {this.state.planet3 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination3Choice} onChange={(event)=> this.setState({destination3Choice: event.target.value})}>
                             {vehicleList.map((option,i) => (
                                  this.state.distance3 <= option.max_distance ? 
-                                 <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name+" "+" ( " + arr[i] +" ) " } />
+                                 <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name} />
                                  :
-                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+" "+" ( " + arr[i] +" ) " } />
+                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name} />
                             ))}
                         </RadioGroup>}    
                     </div>  
@@ -242,9 +242,9 @@ class Main extends Component{
                         {this.state.planet4 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination4Choice} onChange={(event)=> this.setState({destination4Choice: event.target.value})}>
                              {vehicleList.map((option,i) => (
                                  this.state.distance4 <= option.max_distance ? 
-                                 <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name+" "+" ( " + arr[i] +" ) " } />
+                                 <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name} />
                                  :
-                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+" "+" ( " + arr[i] +" ) " } />
+                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name} />
                              ))}
                         </RadioGroup>}    
                     </div>  
