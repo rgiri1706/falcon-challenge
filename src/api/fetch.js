@@ -79,3 +79,29 @@ export default async function _fetch(url,config)
         console.log(error);
     }
 }
+
+export  async function _fetchToken(url,config)
+{
+    try {
+        // eslint-disable-next-line no-mixed-operators
+        const body = config && config.body || null;
+        const configObj = {
+            ...config,
+           headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: body ? JSON.stringify(body) : null
+        }
+        // more manupulations
+        return fetch(url,configObj)
+        .then(handleResponse)
+        .then(data => data)
+        .catch(error => error);
+
+    }
+    catch(error) {
+        //failed request
+        console.log(error);
+    }
+}
