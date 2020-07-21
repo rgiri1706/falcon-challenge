@@ -9,21 +9,18 @@ import falcon from "../Assets/falcon.jpg";
 const ParentDiv = styled.div`
     width: 100%;
     position: absolute;
-    top: 2%;
+    top: 82px;
+    color: white;
+    background-color: #282c34;
+    min-height: 100vh;
 `;
 
 const Image = styled.img`
     border-radius: 50%;
     width: 205px;
     height: 205px;
+    margin-top: 5%;
     border: 2px solid ;
-`;
-
-const Title = styled.div`
-    font-size: 57px;
-    padding-bottom: 2%; 
-    width: 100%;
-    font-family: 'Titillium Web', sans-serif;
 `;
 
 const SelectTitle = styled.div`
@@ -38,9 +35,7 @@ class Main extends Component{
         const { searchResult } = this.props;
        return (
         <ParentDiv>
-             <Title>
-                Finding Falcon
-            </Title>
+            
             <div>
                 <Image src={falcon} alt="Bird"/>
             </div>

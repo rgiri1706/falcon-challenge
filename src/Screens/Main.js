@@ -14,15 +14,9 @@ import falcon from "../Assets/falcon.jpg";
 const Image = styled.img`
     border-radius: 50%;
     width: 205px;
+    margin-top: 5%;
     height: 205px;
     border: 2px solid ;
-`;
-
-const Title = styled.div`
-    font-size: 57px;
-    padding-bottom: 2%; 
-    width: 100%;
-    font-family: 'Titillium Web', sans-serif;
 `;
 
 const SelectTitle = styled.div`
@@ -35,7 +29,10 @@ const SelectTitle = styled.div`
 const ParentDiv = styled.div`
     width: 100%;
     position: absolute;
-    top: 2%;
+    top: 82px;
+    color: white;
+    background-color: #282c34;
+    min-height: 100vh;
 `;
 
 class Main extends Component{
@@ -134,9 +131,6 @@ class Main extends Component{
        arr.push(spacePodTotal, spaceRocketTotal, spaceShuttleTotal, spaceShipTotal);
        return (
         <ParentDiv>
-            <Title>
-                Finding Falcon
-            </Title>
             <div>
                 <Image src={falcon} alt="Bird"/>
             </div>
@@ -162,9 +156,8 @@ class Main extends Component{
                     <div style={{padding: "36px", height: "170px"}}>
                         {this.state.planet1 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination1Choice} onChange={(event)=> this.setState({destination1Choice: event.target.value})}>    
                                 {vehicleList.map((option,i) => (
-
                                             this.state.distance1 <= option.max_distance ? 
-                                            <FormControlLabel key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name} />
+                                            <FormControlLabel key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name+'  ('+arr[i]+ ')'} />
                                             :
                                             <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name} />
                                 ))}
@@ -252,8 +245,8 @@ class Main extends Component{
                 
             </div>
             <div>
-                <Button variant="contained" color="primary" onClick={() => { this.handleSubmit()}} style={{width: 250}}>
-                    Find Falcone !
+                <Button variant="contained" color="primary" onClick={() => { this.handleSubmit()}} style={{width: 250, position: "relative", bottom: "25px"}}>
+                    Find Falcon !
                 </Button>
             </div> 
         </ParentDiv>
