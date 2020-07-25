@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
 import { connect } from 'react-redux';
 import Radio from '@material-ui/core/Radio';
+import { Grid } from '@material-ui/core'
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
@@ -138,110 +139,120 @@ class Main extends Component{
                 Select planets you want to search in : 
             </SelectTitle>
             <div className="Dropdown-Boxes">
-                <div className="Area">
-                    <div style={{padding: "16px"}}>
-                        Destination 1
+            <Grid container spacing={1}>
+                <Grid container item lg={3} sm={6} xs={12} spacing={3}>
+                    <div className="Area">
+                        <div style={{padding: "16px"}}>
+                            Destination 1
+                        </div>
+                        <Select
+                        disableUnderline
+                        id="demo-simple-select"
+                        className="Select-Style"
+                        value={this.state.planet1}
+                        onChange={(event)=> this.setState({planet1: event.target.value})}
+                        >   
+                            {planetList.map((option,i) => (
+                            <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance1(option)}>{option.name}</MenuItem>
+                            ))}
+                        </Select>
+                        <div style={{padding: "36px", height: "170px"}}>
+                            {this.state.planet1 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination1Choice} onChange={(event)=> this.setState({destination1Choice: event.target.value})}>    
+                                    {vehicleList.map((option,i) => (
+                                                this.state.distance1 <= option.max_distance && arr[i]>0 ? 
+                                                <FormControlLabel key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name+'  ('+arr[i]+ ')'} />
+                                                :
+                                                <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
+                                    ))}
+                            </RadioGroup>}    
+                        </div>   
                     </div>
-                    <Select
-                    disableUnderline
-                    id="demo-simple-select"
-                    className="Select-Style"
-                    value={this.state.planet1}
-                    onChange={(event)=> this.setState({planet1: event.target.value})}
-                    >   
-                        {planetList.map((option,i) => (
-                           <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance1(option)}>{option.name}</MenuItem>
-                        ))}
-                    </Select>
-                    <div style={{padding: "36px", height: "170px"}}>
-                        {this.state.planet1 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination1Choice} onChange={(event)=> this.setState({destination1Choice: event.target.value})}>    
+                </Grid>
+                <Grid container item lg={3} sm={6} xs={12} spacing={3}>
+                    <div className="Area">
+                        <div style={{padding: "16px"}}>
+                            Destination 2
+                        </div>
+                        <Select
+                        disableUnderline
+                        id="demo-simple-select"
+                        className="Select-Style"
+                        value={this.state.planet2}
+                        onChange={(event)=> this.setState({planet2: event.target.value})}
+                        >
+                            {planetList.map((option,i) => (
+                            <MenuItem value={option.name} onClick={()=> this.handleDistance2(option)} key={i}>{option.name}</MenuItem>
+                            ))}
+                        </Select> 
+                        <div style={{padding: "36px", height: "170px"}}>
+                            {this.state.planet2 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination2Choice} onChange={(event)=> this.setState({destination2Choice: event.target.value})}>
                                 {vehicleList.map((option,i) => (
-                                            this.state.distance1 <= option.max_distance && arr[i]>0 ? 
-                                            <FormControlLabel key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name+'  ('+arr[i]+ ')'} />
-                                            :
-                                            <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
+                                    this.state.distance2 <= option.max_distance && arr[i]>0 ? 
+                                    <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name+'  ('+arr[i]+ ')'} />
+                                    :
+                                    <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
                                 ))}
-                        </RadioGroup>}    
-                    </div>   
-                </div>
-                <div className="Area">
-                    <div style={{padding: "16px"}}>
-                        Destination 2
+                            </RadioGroup>}
+                        </div>  
                     </div>
-                    <Select
-                    disableUnderline
-                    id="demo-simple-select"
-                    className="Select-Style"
-                    value={this.state.planet2}
-                    onChange={(event)=> this.setState({planet2: event.target.value})}
-                    >
-                         {planetList.map((option,i) => (
-                           <MenuItem value={option.name} onClick={()=> this.handleDistance2(option)} key={i}>{option.name}</MenuItem>
-                        ))}
-                    </Select> 
-                    <div style={{padding: "36px", height: "170px"}}>
-                        {this.state.planet2 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination2Choice} onChange={(event)=> this.setState({destination2Choice: event.target.value})}>
-                             {vehicleList.map((option,i) => (
-                                 this.state.distance2 <= option.max_distance && arr[i]>0 ? 
-                                 <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name+'  ('+arr[i]+ ')'} />
-                                 :
-                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
+                </Grid>
+                <Grid container item lg={3} sm={6} xs={12} spacing={3}>
+                    <div className="Area">
+                        <div style={{padding: "16px"}}>
+                            Destination 3
+                        </div>
+                        <Select
+                        disableUnderline
+                        id="demo-simple-select"
+                        className="Select-Style"
+                        value={this.state.planet3}
+                        onChange={(event)=> this.setState({planet3: event.target.value})}
+                        >
+                            {planetList.map((option,i) => (
+                            <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance3(option)}>{option.name}</MenuItem>
                             ))}
-                        </RadioGroup>}
-                    </div>  
-                </div>
-                <div className="Area">
-                    <div style={{padding: "16px"}}>
-                        Destination 3
+                        </Select> 
+                        <div style={{padding: "36px", height: "170px"}}>
+                            {this.state.planet3 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination3Choice} onChange={(event)=> this.setState({destination3Choice: event.target.value})}>
+                                {vehicleList.map((option,i) => (
+                                    this.state.distance3 <= option.max_distance && arr[i]>0 ? 
+                                    <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name+'  ('+arr[i]+ ')'} />
+                                    :
+                                    <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
+                                ))}
+                            </RadioGroup>}    
+                        </div>  
                     </div>
-                    <Select
-                    disableUnderline
-                    id="demo-simple-select"
-                    className="Select-Style"
-                    value={this.state.planet3}
-                    onChange={(event)=> this.setState({planet3: event.target.value})}
-                    >
-                        {planetList.map((option,i) => (
-                           <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance3(option)}>{option.name}</MenuItem>
-                        ))}
-                    </Select> 
-                    <div style={{padding: "36px", height: "170px"}}>
-                        {this.state.planet3 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination3Choice} onChange={(event)=> this.setState({destination3Choice: event.target.value})}>
-                            {vehicleList.map((option,i) => (
-                                 this.state.distance3 <= option.max_distance && arr[i]>0 ? 
-                                 <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name+'  ('+arr[i]+ ')'} />
-                                 :
-                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
+                </Grid>
+                <Grid container item lg={3} sm={6} xs={12} spacing={3}>
+                    <div className="Area">
+                        <div style={{padding: "16px"}}>
+                            Destination 4
+                        </div>
+                        <Select
+                        disableUnderline
+                        id="demo-simple-select"
+                        className="Select-Style"
+                        value={this.state.planet4}
+                        onChange={(event)=> this.setState({planet4: event.target.value})}
+                        >
+                            {planetList.map((option,i) => (
+                            <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance4(option)}>{option.name}</MenuItem>
                             ))}
-                        </RadioGroup>}    
-                    </div>  
-                </div>
-                <div className="Area">
-                    <div style={{padding: "16px"}}>
-                        Destination 4
+                        </Select> 
+                        <div style={{padding: "36px", height: "170px"}}>
+                            {this.state.planet4 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination4Choice} onChange={(event)=> this.setState({destination4Choice: event.target.value})}>
+                                {vehicleList.map((option,i) => (
+                                    this.state.distance4 <= option.max_distance && arr[i]>0 ? 
+                                    <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name+'  ('+arr[i]+ ')'} />
+                                    :
+                                    <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
+                                ))}
+                            </RadioGroup>}    
+                        </div>  
                     </div>
-                    <Select
-                    disableUnderline
-                    id="demo-simple-select"
-                    className="Select-Style"
-                    value={this.state.planet4}
-                    onChange={(event)=> this.setState({planet4: event.target.value})}
-                    >
-                         {planetList.map((option,i) => (
-                           <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance4(option)}>{option.name}</MenuItem>
-                        ))}
-                    </Select> 
-                    <div style={{padding: "36px", height: "170px"}}>
-                        {this.state.planet4 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination4Choice} onChange={(event)=> this.setState({destination4Choice: event.target.value})}>
-                             {vehicleList.map((option,i) => (
-                                 this.state.distance4 <= option.max_distance && arr[i]>0 ? 
-                                 <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name+'  ('+arr[i]+ ')'} />
-                                 :
-                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
-                             ))}
-                        </RadioGroup>}    
-                    </div>  
-                </div>
+                </Grid>
+            </Grid>
                 
             </div>
             <div>
