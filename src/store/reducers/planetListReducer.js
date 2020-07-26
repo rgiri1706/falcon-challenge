@@ -1,5 +1,5 @@
 import produce from 'immer';
-import { PLANETS_SUCCESS , VEHICLE_SUCCESS , SPACE_POD_TOTAL , SPACE_ROCKET_TOTAL, SPACE_SHUTTLE_TOTAL, SPACE_SHIP_TOTAL , TOKEN_SUCCESS , FIND_FALCONE_SUCCESS } from '../actions/planets.js';
+import { PLANETS_SUCCESS , VEHICLE_SUCCESS , SPACE_POD_TOTAL , SPACE_ROCKET_TOTAL, SPACE_SHUTTLE_TOTAL, SPACE_SHIP_TOTAL , TOKEN_SUCCESS , FIND_FALCONE_SUCCESS , SPACE_POD_INCREASE, SPACE_ROCKET_INCREASE, SPACE_SHUTTLE_INCREASE, SPACE_SHIP_INCREASE } from '../actions/planets.js';
 // Initial State
 const initialState = {
   planetList: [],
@@ -10,6 +10,7 @@ const initialState = {
   searchResult: {},
   spaceShuttleTotal: 0,
   spaceShipTotal: 0
+
 };
 
 // Redux:
@@ -35,6 +36,22 @@ const planetListReducer = (state = initialState, action) =>
       case SPACE_SHIP_TOTAL:
         draft.spaceShipTotal = draft.spaceShipTotal-1 ;
         break;
+
+      case SPACE_POD_INCREASE:
+        draft.spacePodTotal = draft.spacePodTotal+1 ;
+        break;
+        
+      case SPACE_ROCKET_INCREASE:
+        draft.spaceRocketTotal = draft.spaceRocketTotal+1 ;
+        break;
+          
+      case SPACE_SHUTTLE_INCREASE:
+        draft.spaceShuttleTotal = draft.spaceShuttleTotal+1 ;
+        break;
+
+      case SPACE_SHIP_INCREASE:
+        draft.spaceShipTotal = draft.spaceShipTotal+1 ;
+        break;  
       
       case TOKEN_SUCCESS:
         draft.token = action.data ;

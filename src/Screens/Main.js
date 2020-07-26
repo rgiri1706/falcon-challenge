@@ -8,7 +8,7 @@ import { Grid } from '@material-ui/core'
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
-import { planetListRequest , vehicleListRequest , spacePodTally , spaceRocketTally , spaceShuttleTally, spaceShipTally , getTokenRequest , findFalconeRequest } from '../store/actions/planets.js';
+import { planetListRequest , vehicleListRequest , spacePodTally , spaceRocketTally , spaceShuttleTally, spaceShipTally , getTokenRequest , findFalconeRequest , spacePodIncrease, spaceRocketIncrease, spaceShuttleIncrease, spaceShipIncrease } from '../store/actions/planets.js';
 import '../App.css';
 import falcon from "../Assets/falcon.jpg";
 
@@ -44,6 +44,7 @@ class Main extends Component{
             planet2:'',
             planet3:'',
             planet4:'',
+            time: 0,
             distance1: null,
             distance2: null,
             distance3: null,
@@ -62,21 +63,224 @@ class Main extends Component{
         requestVehicleList();
     }
 
-    handleAircraftTally=(aircraftName)=>{
-        const { changeSpacePodTally , changeSpaceRocketTally , changeSpaceShuttleTally , changeSpaceShipTally } = this.props; 
-        console.log(aircraftName);
-        if(aircraftName === "Space pod")
+    handleAircraftTally=(aircraftName, option, dropdown)=>{
+        const { changeSpacePodTally , changeSpaceRocketTally , changeSpaceShuttleTally , changeSpaceShipTally , increaseSpaceRocketTally, increaseSpacePodTally, increaseSpaceShuttleTally, increaseSpaceShipTally } = this.props;
+        if(aircraftName === "Space pod" )
         {
-            changeSpacePodTally();
+            if((dropdown === "1" && this.state.destination1Choice !== "Space pod") || (dropdown === "2" && this.state.destination2Choice !== "Space pod") || (dropdown === "3" && this.state.destination3Choice !== "Space pod") || (dropdown === "4" && this.state.destination4Choice !== "Space pod")) {
+                if(dropdown === "1")
+                {
+                    if(this.state.destination1Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination1Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination1Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                } else if(dropdown === "2")
+                {
+                    if(this.state.destination2Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination2Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination2Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                } else if(dropdown === "3")
+                {
+                    if(this.state.destination3Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination3Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination3Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                } else if(dropdown === "4")
+                {
+                    if(this.state.destination4Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination4Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination4Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                }
+                changeSpacePodTally();
+            }
         }
         else if(aircraftName === "Space rocket"){
+            if((dropdown === "1" && this.state.destination1Choice !== "Space rocket") || (dropdown === "2" && this.state.destination2Choice !== "Space rocket") || (dropdown === "3" && this.state.destination3Choice !== "Space rocket") || (dropdown === "4" && this.state.destination4Choice !== "Space rocket")) {
+                if(dropdown === "1")
+                {
+                    if(this.state.destination1Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    } else if(this.state.destination1Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination1Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                } else if(dropdown === "2")
+                {
+                    if(this.state.destination2Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    } else if(this.state.destination2Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination2Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                } else if(dropdown === "3")
+                {
+                    if(this.state.destination3Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    } else if(this.state.destination3Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination3Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                } else if(dropdown === "4")
+                {
+                    if(this.state.destination4Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    } else if(this.state.destination4Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination4Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                }
             changeSpaceRocketTally();
+            }
         }
         else if(aircraftName === "Space shuttle"){
+            if((dropdown === "1" && this.state.destination1Choice !== "Space shuttle") || (dropdown === "2" && this.state.destination2Choice !== "Space shuttle") || (dropdown === "3" && this.state.destination3Choice !== "Space shuttle") || (dropdown === "4" && this.state.destination4Choice !== "Space shuttle")) {
+                if(dropdown === "1")
+                {
+                    if(this.state.destination1Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    } else if(this.state.destination1Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination1Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                } else if(dropdown === "2")
+                {
+                    if(this.state.destination2Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination2Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    } else if(this.state.destination2Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                } else if(dropdown === "3")
+                {
+                    if(this.state.destination3Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination3Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    } else if(this.state.destination3Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                } else if(dropdown === "4")
+                {
+                    if(this.state.destination4Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination4Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    } else if(this.state.destination4Choice === "Space ship")
+                    {
+                        increaseSpaceShipTally();
+                    }
+                }
             changeSpaceShuttleTally();
+            }
         }
         else if(aircraftName === "Space ship"){
+            if((dropdown === "1" && this.state.destination1Choice !== "Space ship") || (dropdown === "2" && this.state.destination2Choice !== "Space ship") || (dropdown === "3" && this.state.destination3Choice !== "Space ship") || (dropdown === "4" && this.state.destination4Choice !== "Space ship")) {
+                if(dropdown === "1")
+                {
+                    if(this.state.destination1Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination1Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination1Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    }
+                } else if(dropdown === "2")
+                {
+                    if(this.state.destination2Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination2Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination2Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    }
+                } else if(dropdown === "3")
+                {
+                    if(this.state.destination3Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination3Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination3Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    }
+                } else if(dropdown === "4")
+                {
+                    if(this.state.destination4Choice === "Space rocket")
+                    {
+                        increaseSpaceRocketTally();
+                    } else if(this.state.destination4Choice === "Space shuttle")
+                    {
+                        increaseSpaceShuttleTally();
+                    } else if(this.state.destination4Choice === "Space pod")
+                    {
+                        increaseSpacePodTally();
+                    }
+                }    
             changeSpaceShipTally();
+            }
         }
     }
 
@@ -124,7 +328,6 @@ class Main extends Component{
           alert(fail);
         }
       )
-        
     }
     render(){
        const { vehicleList , planetList , spacePodTotal, spaceRocketTotal, spaceShuttleTotal, spaceShipTotal } = this.props;
@@ -160,7 +363,7 @@ class Main extends Component{
                             {this.state.planet1 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination1Choice} onChange={(event)=> this.setState({destination1Choice: event.target.value})}>    
                                     {vehicleList.map((option,i) => (
                                                 this.state.distance1 <= option.max_distance && arr[i]>0 ? 
-                                                <FormControlLabel key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name+'  ('+arr[i]+ ')'} />
+                                                <FormControlLabel root={{background: "white"}} key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name, option, "1")} />} label={option.name+'  ('+arr[i]+ ')'} />
                                                 :
                                                 <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
                                     ))}
@@ -173,7 +376,7 @@ class Main extends Component{
                         <div style={{padding: "16px"}}>
                             Destination 2
                         </div>
-                        <Select
+                        {this.state.destination1Choice ? <Select
                         disableUnderline
                         id="demo-simple-select"
                         className="Select-Style"
@@ -183,12 +386,25 @@ class Main extends Component{
                             {planetList.map((option,i) => (
                             <MenuItem value={option.name} onClick={()=> this.handleDistance2(option)} key={i}>{option.name}</MenuItem>
                             ))}
-                        </Select> 
+                        </Select>
+                        :
+                        <Select
+                        disableUnderline
+                        id="demo-simple-select"
+                        disabled
+                        className="Select-Style"
+                        value={this.state.planet2}
+                        onChange={(event)=> this.setState({planet2: event.target.value})}
+                        >
+                            {planetList.map((option,i) => (
+                            <MenuItem value={option.name} onClick={()=> this.handleDistance2(option)} key={i}>{option.name}</MenuItem>
+                            ))}
+                        </Select>}
                         <div style={{padding: "36px", height: "170px"}}>
                             {this.state.planet2 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination2Choice} onChange={(event)=> this.setState({destination2Choice: event.target.value})}>
                                 {vehicleList.map((option,i) => (
                                     this.state.distance2 <= option.max_distance && arr[i]>0 ? 
-                                    <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)} />} label={option.name+'  ('+arr[i]+ ')'} />
+                                    <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name, option, "2")} />} label={option.name+'  ('+arr[i]+ ')'} />
                                     :
                                     <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
                                 ))}
@@ -201,7 +417,7 @@ class Main extends Component{
                         <div style={{padding: "16px"}}>
                             Destination 3
                         </div>
-                        <Select
+                        {this.state.destination1Choice && this.state.destination2Choice ? <Select
                         disableUnderline
                         id="demo-simple-select"
                         className="Select-Style"
@@ -212,11 +428,24 @@ class Main extends Component{
                             <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance3(option)}>{option.name}</MenuItem>
                             ))}
                         </Select> 
+                        :
+                        <Select
+                        disableUnderline
+                        id="demo-simple-select"
+                        className="Select-Style"
+                        disabled
+                        value={this.state.planet3}
+                        onChange={(event)=> this.setState({planet3: event.target.value})}
+                        >
+                            {planetList.map((option,i) => (
+                            <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance3(option)}>{option.name}</MenuItem>
+                            ))}
+                        </Select>}
                         <div style={{padding: "36px", height: "170px"}}>
                             {this.state.planet3 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination3Choice} onChange={(event)=> this.setState({destination3Choice: event.target.value})}>
                                 {vehicleList.map((option,i) => (
                                     this.state.distance3 <= option.max_distance && arr[i]>0 ? 
-                                    <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name+'  ('+arr[i]+ ')'} />
+                                    <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name, option, "3")}/>} label={option.name+'  ('+arr[i]+ ')'} />
                                     :
                                     <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
                                 ))}
@@ -229,7 +458,7 @@ class Main extends Component{
                         <div style={{padding: "16px"}}>
                             Destination 4
                         </div>
-                        <Select
+                        {this.state.destination3Choice ? <Select
                         disableUnderline
                         id="demo-simple-select"
                         className="Select-Style"
@@ -240,11 +469,24 @@ class Main extends Component{
                             <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance4(option)}>{option.name}</MenuItem>
                             ))}
                         </Select> 
+                        :
+                        <Select
+                        disableUnderline
+                        id="demo-simple-select"
+                        className="Select-Style"
+                        disabled
+                        value={this.state.planet4}
+                        onChange={(event)=> this.setState({planet4: event.target.value})}
+                        >
+                            {planetList.map((option,i) => (
+                            <MenuItem value={option.name} key={i} onClick={()=> this.handleDistance4(option)}>{option.name}</MenuItem>
+                            ))}
+                        </Select>} 
                         <div style={{padding: "36px", height: "170px"}}>
                             {this.state.planet4 && <RadioGroup aria-label="gender" name="gender1" value={this.state.destination4Choice} onChange={(event)=> this.setState({destination4Choice: event.target.value})}>
                                 {vehicleList.map((option,i) => (
                                     this.state.distance4 <= option.max_distance && arr[i]>0 ? 
-                                    <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name)}/>} label={option.name+'  ('+arr[i]+ ')'} />
+                                    <FormControlLabel  key= {i} value={option.name} control={<Radio onClick={()=> this.handleAircraftTally(option.name, option, "4")}/>} label={option.name+'  ('+arr[i]+ ')'} />
                                     :
                                     <FormControlLabel disabled key= {i} value={option.name} control={<Radio />} label={option.name+'  ('+arr[i]+ ')'} />
                                 ))}
@@ -253,12 +495,16 @@ class Main extends Component{
                     </div>
                 </Grid>
             </Grid>
-                
             </div>
             <div>
-                <Button variant="contained" color="primary" onClick={() => { this.handleSubmit()}} style={{width: 250, position: "relative", bottom: "25px"}}>
+                {this.state.destination1Choice !== null && this.state.destination2Choice !== null && this.state.destination3Choice !== null && this.state.destination4Choice !== null ? <Button variant="contained"  color="secondary" onClick={() => { this.handleSubmit()}} style={{width: 250, position: "relative", bottom: "25px"}}>
                     Find Falcon !
                 </Button>
+                :
+                <Button variant="contained"  disabled color="secondary" onClick={() => { this.handleSubmit()}} style={{width: 250, position: "relative", bottom: "25px", border: "1px solid grey", color: "grey"}}>
+                    Find Falcon !
+                </Button>
+                }
             </div> 
         </ParentDiv>
        );
@@ -282,6 +528,10 @@ const mapStateToProps = state => ({
     changeSpaceRocketTally: () => dispatch(spaceRocketTally()),
     changeSpaceShuttleTally: () => dispatch(spaceShuttleTally()),
     changeSpaceShipTally: () => dispatch(spaceShipTally()),
+    increaseSpacePodTally: () => dispatch(spacePodIncrease()),
+    increaseSpaceRocketTally: () => dispatch(spaceRocketIncrease()),
+    increaseSpaceShuttleTally: () => dispatch(spaceShuttleIncrease()),
+    increaseSpaceShipTally: () => dispatch(spaceShipIncrease()),
     requestToken: () => dispatch(getTokenRequest()),
     requestFindFalcone: (planetData, resolve, reject) => dispatch(findFalconeRequest(planetData, resolve, reject))
   })

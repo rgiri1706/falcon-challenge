@@ -6,6 +6,10 @@ export const SPACE_POD_TOTAL = 'app/planets/SPACE_POD_TOTAL';
 export const SPACE_ROCKET_TOTAL = 'app/planets/SPACE_ROCKET_TOTAL';
 export const SPACE_SHUTTLE_TOTAL = 'app/planets/SPACE_SHUTTLE_TOTAL';
 export const SPACE_SHIP_TOTAL = 'app/planets/SPACE_SHIP_TOTAL';
+export const SPACE_POD_INCREASE = 'app/planets/SPACE_POD_INCREASE';
+export const SPACE_ROCKET_INCREASE = 'app/planets/SPACE_ROCKET_INCREASE';
+export const SPACE_SHUTTLE_INCREASE = 'app/planets/SPACE_SHUTTLE_INCREASE';
+export const SPACE_SHIP_INCREASE = 'app/planets/SPACE_SHIP_INCREASE';
 export const TOKEN_REQUEST = 'app/planets/TOKEN_REQUEST';
 export const TOKEN_SUCCESS = 'app/planets/TOKEN_SUCCESS';
 export const FIND_FALCONE_REQUEST = 'app/planets/FIND_FALCONE_REQUEST';
@@ -58,6 +62,30 @@ export const spaceShuttleTally = () => {
 export const spaceShipTally = () => {
   return {
     type: SPACE_SHIP_TOTAL
+  };
+};
+
+export const spacePodIncrease = () => {
+  return {
+    type: SPACE_POD_INCREASE
+  };
+};
+
+export const spaceRocketIncrease = () => {
+  return {
+    type: SPACE_ROCKET_INCREASE
+  };
+};
+
+export const spaceShuttleIncrease = () => {
+  return {
+    type: SPACE_SHUTTLE_INCREASE
+  };
+};
+
+export const spaceShipIncrease = () => {
+  return {
+    type: SPACE_SHIP_INCREASE
   };
 };
 
