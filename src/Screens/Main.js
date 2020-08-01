@@ -31,6 +31,7 @@ const SelectTitle = styled.div`
 const Title = styled.div`
     font-size: 20px;
     padding-bottom: 2%;
+    
     width: 100%;
     font-family: 'Titillium Web', sans-serif;
 `;
