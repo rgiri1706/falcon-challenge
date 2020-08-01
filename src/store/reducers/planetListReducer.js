@@ -5,6 +5,10 @@ const initialState = {
   planetList: [],
   vehicleList: [],
   spacePodTotal: 0,
+  spacePodSpeed: 0,
+  spaceRocketSpeed: 0,
+  spaceShuttleSpeed: 0,
+  spaceShipSpeed: 0,
   spaceRocketTotal: 0,
   token: {},
   searchResult: {},
@@ -63,6 +67,10 @@ const planetListReducer = (state = initialState, action) =>
         draft.spaceRocketTotal = action.data[1].total_no;
         draft.spaceShuttleTotal = action.data[2].total_no;
         draft.spaceShipTotal = action.data[3].total_no;
+        draft.spacePodSpeed = action.data[0].speed;
+        draft.spaceRocketSpeed = action.data[1].speed;
+        draft.spaceShuttleSpeed = action.data[2].speed;
+        draft.spaceShipSpeed = action.data[3].speed;
         break;  
       
       case FIND_FALCONE_SUCCESS:

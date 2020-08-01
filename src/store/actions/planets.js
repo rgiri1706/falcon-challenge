@@ -8,6 +8,7 @@ export const SPACE_SHUTTLE_TOTAL = 'app/planets/SPACE_SHUTTLE_TOTAL';
 export const SPACE_SHIP_TOTAL = 'app/planets/SPACE_SHIP_TOTAL';
 export const SPACE_POD_INCREASE = 'app/planets/SPACE_POD_INCREASE';
 export const SPACE_ROCKET_INCREASE = 'app/planets/SPACE_ROCKET_INCREASE';
+export const CHANGE_LOADER_TRUE = 'app/planets/CHANGE_LOADER_TRUE';
 export const SPACE_SHUTTLE_INCREASE = 'app/planets/SPACE_SHUTTLE_INCREASE';
 export const SPACE_SHIP_INCREASE = 'app/planets/SPACE_SHIP_INCREASE';
 export const TOKEN_REQUEST = 'app/planets/TOKEN_REQUEST';

@@ -33,6 +33,8 @@ const SelectTitle = styled.div`
 class Main extends Component{
     render(){
         const { searchResult } = this.props;
+        const { data } =this.props.location;
+        console.log(data);
        return (
         <ParentDiv>
             
@@ -46,6 +48,9 @@ class Main extends Component{
                 </SelectTitle>
                 <SelectTitle>
                     Planet Found: {searchResult.planet_name}
+                </SelectTitle>
+                <SelectTitle>
+                    Total Time: {data}
                 </SelectTitle>
             </div>
             ):

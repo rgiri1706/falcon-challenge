@@ -22,7 +22,9 @@ function App() {
       <Provider store={store}>
         <div className="App">
             <div>
-              <AppBar position="static" style={{minHeight: "13vh"}}>
+              <AppBar position="static" style={{ position: "fixed",
+    top: 0,
+    width: "100%"}}>
                 <Title>
                   Finding Falcon
                 </Title>
