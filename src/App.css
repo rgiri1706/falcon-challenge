@@ -37,7 +37,10 @@
   flex: 3;
 }
 
-
+.Total-Time {
+  position : relative;
+  bottom : 10vh;
+}
 
 .Dropdown-Boxes {
   display: flex;
@@ -46,11 +49,11 @@
   padding: 42px
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pd-16 {
+  padding: 16px;
+}
+
+.Radio-Button-Alignment {
+  padding: 36px;
+  height: 170px;
 }

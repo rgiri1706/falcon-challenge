@@ -56,10 +56,10 @@ class Main extends Component{
             ):
             (
                 <SelectTitle>
-                    The Falcone is wiser than the king thinks
+                    The Falcon is wiser than the king thinks
                 </SelectTitle>
             )}
-            <div style={{position: "relative", top: 150}}>
+            <div style={{marginTop: "5%", marginBottom: "10%"}}>
                 <Link to={"/"} style={{textDecoration: "none"}}>
                     <Button variant="contained" color="primary" style={{width: 250}}>
                         Start Again
