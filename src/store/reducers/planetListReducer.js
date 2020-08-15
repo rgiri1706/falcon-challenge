@@ -1,5 +1,9 @@
 import produce from 'immer';
-import { PLANETS_SUCCESS , VEHICLE_SUCCESS , SPACE_POD_TOTAL , SPACE_ROCKET_TOTAL, SPACE_SHUTTLE_TOTAL, SPACE_SHIP_TOTAL , TOKEN_SUCCESS , FIND_FALCONE_SUCCESS , SPACE_POD_INCREASE, SPACE_ROCKET_INCREASE, SPACE_SHUTTLE_INCREASE, SPACE_SHIP_INCREASE } from '../actions/planets.js';
+import { PLANETS_SUCCESS , SPACE_POD_TOTAL , SPACE_ROCKET_TOTAL, SPACE_SHUTTLE_TOTAL, SPACE_SHIP_TOTAL , SPACE_POD_INCREASE, SPACE_ROCKET_INCREASE, SPACE_SHUTTLE_INCREASE, SPACE_SHIP_INCREASE } from '../actions/planets.js';
+import { VEHICLE_SUCCESS } from '../actions/vehicle.js';
+import { TOKEN_SUCCESS } from '../actions/token.js';
+import { FIND_FALCONE_SUCCESS } from '../actions/find.js';
+
 // Initial State
 const initialState = {
   planetList: [],

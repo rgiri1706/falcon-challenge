@@ -23,9 +23,10 @@
 }
 
 .Select-Style {
-  background: white;
+  background: #e0e0e0;
   width: 84%;
   border-radius: 5px;
+  border: 1px solid black;
   font-family: 'Titillium Web', sans-serif;
 }
 

@@ -8,7 +8,10 @@ import { Grid } from '@material-ui/core'
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Select from '@material-ui/core/Select';
-import { planetListRequest , vehicleListRequest , spacePodTally , spaceRocketTally , spaceShuttleTally, spaceShipTally , getTokenRequest , findFalconeRequest , spacePodIncrease, spaceRocketIncrease, spaceShuttleIncrease, spaceShipIncrease } from '../store/actions/planets.js';
+import { planetListRequest , spacePodTally , spaceRocketTally , spaceShuttleTally, spaceShipTally ,  spacePodIncrease, spaceRocketIncrease, spaceShuttleIncrease, spaceShipIncrease } from '../store/actions/planets.js';
+import { vehicleListRequest } from '../store/actions/vehicle.js';
+import { getTokenRequest } from '../store/actions/token.js';
+import { findFalconeRequest } from '../store/actions/find.js';
 import '../App.css';
 import falcon from "../Assets/falcon.jpg";
 
@@ -31,8 +34,7 @@ const ParentDiv = styled.div`
     width: 100%;
     position: absolute;
     top: 82px;
-    color: white;
-    background-color: #282c34;
+    color: black;
     min-height: 100vh;
 `;
 

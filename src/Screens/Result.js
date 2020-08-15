@@ -10,8 +10,7 @@ const ParentDiv = styled.div`
     width: 100%;
     position: absolute;
     top: 82px;
-    color: white;
-    background-color: #282c34;
+    color: black;
     min-height: 100vh;
 `;
 
