@@ -1,0 +1,19 @@
+.Area{
+    flex: 3;
+  }
+  
+.Total-Time {
+    position : relative;
+    bottom : 10vh;
+}
+
+.Dropdown-Boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 42px
+}
+
+.pd-16 {
+    padding: 16px;
+}

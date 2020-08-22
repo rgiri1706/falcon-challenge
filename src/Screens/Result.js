@@ -1,39 +1,15 @@
 import React, { Component } from 'react';
-import styled from "styled-components";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { Image, SelectTitle, ParentDiv } from '../styles/Main'; 
 import '../App.css';
 import falcon from "../Assets/falcon.jpg";
 
-const ParentDiv = styled.div`
-    width: 100%;
-    position: absolute;
-    top: 82px;
-    color: black;
-    min-height: 100vh;
-`;
-
-const Image = styled.img`
-    border-radius: 50%;
-    width: 205px;
-    height: 205px;
-    margin-top: 5%;
-    border: 2px solid ;
-`;
-
-const SelectTitle = styled.div`
-    font-size: 37px;
-    padding-top: 2%; 
-    width: 100%;
-    font-family: 'Titillium Web', sans-serif;
-`;
-
 class Main extends Component{
     render(){
-        const { searchResult } = this.props;
-        const { data } =this.props.location;
-        console.log(data);
+       const { searchResult } = this.props;
+       const { data } =this.props.location;
        return (
         <ParentDiv>
             
@@ -60,7 +36,7 @@ class Main extends Component{
             )}
             <div style={{marginTop: "5%", marginBottom: "10%"}}>
                 <Link to={"/"} style={{textDecoration: "none"}}>
-                    <Button variant="contained" color="primary" style={{width: 250}}>
+                    <Button variant="contained" color="secondary" style={{width: 250}}>
                         Start Again
                     </Button>
                 </Link>

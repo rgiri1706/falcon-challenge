@@ -1,6 +1,6 @@
 import produce from 'immer';
-import { PLANETS_SUCCESS , SPACE_POD_TOTAL , SPACE_ROCKET_TOTAL, SPACE_SHUTTLE_TOTAL, SPACE_SHIP_TOTAL , SPACE_POD_INCREASE, SPACE_ROCKET_INCREASE, SPACE_SHUTTLE_INCREASE, SPACE_SHIP_INCREASE } from '../actions/planets.js';
-import { VEHICLE_SUCCESS } from '../actions/vehicle.js';
+import { PLANETS_SUCCESS  } from '../actions/planets.js';
+import { VEHICLE_SUCCESS , UPDATE_VEHICLE_COUNT , UPDATE_TOTAL_TIME , TOTAL_TIME_INITIAL } from '../actions/vehicle.js';
 import { TOKEN_SUCCESS } from '../actions/token.js';
 import { FIND_FALCONE_SUCCESS } from '../actions/find.js';
 
@@ -8,18 +8,35 @@ import { FIND_FALCONE_SUCCESS } from '../actions/find.js';
 const initialState = {
   planetList: [],
   vehicleList: [],
-  spacePodTotal: 0,
-  spacePodSpeed: 0,
-  spaceRocketSpeed: 0,
-  spaceShuttleSpeed: 0,
-  spaceShipSpeed: 0,
-  spaceRocketTotal: 0,
   token: {},
-  searchResult: {},
-  spaceShuttleTotal: 0,
-  spaceShipTotal: 0
-
+  totalTime: 0,
+  searchResult: {}
 };
+
+const updateVehicleCount= (prevData, newData, vehicleList) => {
+  vehicleList.forEach((option)=>{
+    if(option.name === prevData){
+      option.total_no=option.total_no+1;
+    }
+    if(option.name === newData){
+      option.total_no=option.total_no-1;
+    }
+  })
+}
+
+const updateTotalCount= (prevData, newData, vehicleList, selectedPlanet, totalTime) => {
+  let time = totalTime;
+  console.log(totalTime);
+  vehicleList.forEach((option)=>{
+    if(option.name === prevData){
+      time = time - ((selectedPlanet.distance)/option.speed);
+    }
+    if(option.name === newData){
+      time = time + ((selectedPlanet.distance)/option.speed);
+    }
+  })
+  return time;
+}
 
 // Redux:
 const planetListReducer = (state = initialState, action) =>
@@ -28,38 +45,6 @@ const planetListReducer = (state = initialState, action) =>
       case PLANETS_SUCCESS:
         draft.planetList = action.data;
         break;
-
-      case SPACE_POD_TOTAL:
-        draft.spacePodTotal = draft.spacePodTotal-1 ;
-        break;
-        
-      case SPACE_ROCKET_TOTAL:
-        draft.spaceRocketTotal = draft.spaceRocketTotal-1 ;
-        break;
-          
-      case SPACE_SHUTTLE_TOTAL:
-        draft.spaceShuttleTotal = draft.spaceShuttleTotal-1 ;
-        break;
-
-      case SPACE_SHIP_TOTAL:
-        draft.spaceShipTotal = draft.spaceShipTotal-1 ;
-        break;
-
-      case SPACE_POD_INCREASE:
-        draft.spacePodTotal = draft.spacePodTotal+1 ;
-        break;
-        
-      case SPACE_ROCKET_INCREASE:
-        draft.spaceRocketTotal = draft.spaceRocketTotal+1 ;
-        break;
-          
-      case SPACE_SHUTTLE_INCREASE:
-        draft.spaceShuttleTotal = draft.spaceShuttleTotal+1 ;
-        break;
-
-      case SPACE_SHIP_INCREASE:
-        draft.spaceShipTotal = draft.spaceShipTotal+1 ;
-        break;  
       
       case TOKEN_SUCCESS:
         draft.token = action.data ;
@@ -67,19 +52,23 @@ const planetListReducer = (state = initialState, action) =>
 
       case VEHICLE_SUCCESS:
         draft.vehicleList = action.data;
-        draft.spacePodTotal = action.data[0].total_no;
-        draft.spaceRocketTotal = action.data[1].total_no;
-        draft.spaceShuttleTotal = action.data[2].total_no;
-        draft.spaceShipTotal = action.data[3].total_no;
-        draft.spacePodSpeed = action.data[0].speed;
-        draft.spaceRocketSpeed = action.data[1].speed;
-        draft.spaceShuttleSpeed = action.data[2].speed;
-        draft.spaceShipSpeed = action.data[3].speed;
+        break;  
+
+      case UPDATE_VEHICLE_COUNT:
+        updateVehicleCount(action.prevData, action.newData, draft.vehicleList);
         break;  
       
+      case UPDATE_TOTAL_TIME:
+        draft.totalTime=updateTotalCount(action.prevData, action.newData, draft.vehicleList, action.selectedPlanet, draft.totalTime);
+        break;  
+          
       case FIND_FALCONE_SUCCESS:
         draft.searchResult = action.data;
-        break
+        break;
+
+      case TOTAL_TIME_INITIAL:
+        draft.totalTime = 0;
+        break;  
           
       default: {
         return draft;
