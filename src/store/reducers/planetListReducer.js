@@ -26,7 +26,6 @@ const updateVehicleCount= (prevData, newData, vehicleList) => {
 
 const updateTotalCount= (prevData, newData, vehicleList, selectedPlanet, totalTime) => {
   let time = totalTime;
-  console.log(totalTime);
   vehicleList.forEach((option)=>{
     if(option.name === prevData){
       time = time - ((selectedPlanet.distance)/option.speed);

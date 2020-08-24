@@ -34,37 +34,15 @@
     else if (contentType.includes("text/html")) {
       return handleTextResponse(response);
     }
-    //  else if (contentType.includes("text/plain")) {
-    //   return handleTextResponse(response);
-    // } else if (contentType === null) {
-    //   return Promise.resolve(null);
-    // }
-    // Other response types as necessary. I haven't found a need for them yet though.
     throw new Error(`Sorry, content-type ${contentType} not supported`);
   }
-
-  // important params config = { headers: {}, body: {}, method: "GET"}
-  // this appends the user auth details
-  // this stores user auth details on signin
 export default async function _fetch(url,config)
 {
     try {
-        // Read token from store
-        // token = await AsyncStorage.getItem('access-token');
-        // uid = await AsyncStorage.getItem('uid');
-        // client = await AsyncStorage.getItem('client');
-        // make body
         // eslint-disable-next-line no-mixed-operators
         const body = config && config.body || null;
         const configObj = {
             ...config,
-           /* headers: {
-                "Content-Type": "application/json",
-                "access-token": token,
-                "uid": uid,
-                client: client,
-                ...headers
-            },*/
             body: body ? JSON.stringify(body) : null
         }
         // more manupulations

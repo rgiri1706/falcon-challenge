@@ -53,7 +53,7 @@ class Main extends Component{
     }
 
     handleSubmit=()=>{
-        //Function to check whether falcon has been found or not
+        
         const { token , requestFindFalcone , history , totalTime } = this.props;
         const planetData = {
             token: token,
