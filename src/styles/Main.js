@@ -22,3 +22,17 @@ top: 82px;
 color: black;
 min-height: 100vh;
 `;
+
+export const activeButton = {
+    width: 250, 
+    position: "relative", 
+    bottom: "60px"
+};
+
+export const disabledButton = {
+    width: 250, 
+    position: "relative", 
+    bottom: "60px", 
+    border: "1px solid grey", 
+    color: "grey"
+};
