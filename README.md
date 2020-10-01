@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Steps toget started
+
+1 - Install depnedencies, run
+### `yarn install`
+
+2 - Run command,
+### `yarn start`
+
+Open [http://localhost:3000] to view it in the browser.
+
 ## Available Scripts
 
 In the project directory, you can run:
