@@ -31,7 +31,7 @@ class Main extends Component{
             ):
             (
                 <SelectTitle>
-                    The Falcon is wiser than the king thinks
+                    The Falcon is wiser than the king thinks> Please try again.
                 </SelectTitle>
             )}
             <div style={{marginTop: "5%", marginBottom: "10%"}}>
