@@ -3,7 +3,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Steps toget started
 
 1 - Install depnedencies, run
-### `yarn install`
+### `yarn install` (if using yarn)
+### `npm install` (if using npm)
 
 2 - Run command,
 ### `yarn start`
